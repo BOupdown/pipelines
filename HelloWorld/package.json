@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
+    "deploy": "npm run build && npx angular-cli-ghpages --dir=dist/my-angular-app",
     "serve:ssr:HelloWorld": "node dist/hello-world/server/server.mjs"
   },
   "private": true,
