@@ -27,14 +27,16 @@ jobs:
 
       # Etape 4
       - name: Build Angular Project
-        run: npm run build -- --output-path=docs --base-href=/pipelines/
+        run: |
+          npm run build --production
+          ls -la dist/
         working-directory: ./HelloWorld
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./HelloWorld/docs
+          publish_dir: ./HelloWorld/dist/hello-world/browser
 
 
       # Optionnel : Ajouter des notifications en cas d'erreur de lint
