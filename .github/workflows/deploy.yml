@@ -33,12 +33,10 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/browser
+          publish_dir: ./docs
 
 
       # Optionnel : Ajouter des notifications en cas d'erreur de lint
       - name: Notify on failure
         if: failure()
         run: echo "Linting errors found! Please fix them."
-
-        
