@@ -24,6 +24,7 @@ jobs:
       # Étape 3 : Exécuter le linter
       - name: Run linter
         run: npm run lint
+        working-directory: HelloWorld
 
 
       # Optionnel : Ajouter des notifications en cas d'erreur de lint
