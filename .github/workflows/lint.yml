@@ -27,9 +27,9 @@ jobs:
         working-directory: ./HelloWorld
 
       # Deploy
-      #- name: Deploy to GitHub Pages
-       # run: npm run deploy
-        #working-directory: Helloworld
+      - name: Deploy to GitHub Pages
+        run: npm run deploy
+        working-directory: ./Helloworld
 
 
       # Optionnel : Ajouter des notifications en cas d'erreur de lint
