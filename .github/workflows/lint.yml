@@ -18,11 +18,8 @@ jobs:
       # Étape 2 : Installer les dépendances (par exemple, npm install pour un projet JavaScript/TypeScript)
       - name: Install dependencies
         run: npm install  # Remplacez par la commande d'installation de votre projet (yarn, pip, etc.)
+        working-directory: ~/github-pages/pipelines/.github/workflows/lint.yml
       
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
 
       # Étape 3 : Exécuter le linter
       - name: Run linter
