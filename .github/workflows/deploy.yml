@@ -1,13 +1,12 @@
-name: Lint Pull Request
+name: Deploy Angular to GitHub Pages
 
-# Exécute le workflow pour chaque pull request ouverte
 on:
   pull_request:
     branches:
       - master
 
 jobs:
-  lint:
+  deploy:
     runs-on: ubuntu-20.04
 
     steps:
@@ -25,6 +24,17 @@ jobs:
       - name: Run linter
         run: npm run lint
         working-directory: ./HelloWorld
+
+      # Etape 4
+      - name: Build Angular Project
+        run: npm run build -- --output-path=docs --base-href=/HelloWorld/
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+
 
       # Optionnel : Ajouter des notifications en cas d'erreur de lint
       - name: Notify on failure
