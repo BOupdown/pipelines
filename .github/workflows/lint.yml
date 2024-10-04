@@ -18,17 +18,18 @@ jobs:
       # Étape 2 : Installer les dépendances (par exemple, npm install pour un projet JavaScript/TypeScript)
       - name: Install dependencies
         run: npm install
-        working-directory: HelloWorld
+        working-directory: ./HelloWorld
       
 
       # Étape 3 : Exécuter le linter
       - name: Run linter
         run: npm run lint
-        working-directory: HelloWorld
-      #deploy
-      - name: Deploy to GitHub Pages
-        run: npm run deploy
-        working-directory: Helloworld
+        working-directory: ./HelloWorld
+
+      # Deploy
+      #- name: Deploy to GitHub Pages
+       # run: npm run deploy
+        #working-directory: Helloworld
 
 
       # Optionnel : Ajouter des notifications en cas d'erreur de lint
