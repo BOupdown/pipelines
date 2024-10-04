@@ -1,0 +1,31 @@
+name: Lint Pull Request
+
+# Exécute le workflow pour chaque pull request ouverte
+on:
+  pull_request:
+    branches:
+      - main  # Exécute seulement sur les PRs vers la branche principale (ajustez selon vos besoins)
+      - localBranch
+
+jobs:
+  lint:
+    runs-on: ubuntu-20.04
+
+    steps:
+      # Étape 1 : Checkout du code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Étape 2 : Installer les dépendances (par exemple, npm install pour un projet JavaScript/TypeScript)
+      - name: Install dependencies
+        run: npm install  # Remplacez par la commande d'installation de votre projet (yarn, pip, etc.)
+
+      # Étape 3 : Exécuter le linter
+      - name: Run linter
+        run: npm run lint
+
+
+      # Optionnel : Ajouter des notifications en cas d'erreur de lint
+      - name: Notify on failure
+        if: failure()
+        run: echo "Linting errors found! Please fix them."
